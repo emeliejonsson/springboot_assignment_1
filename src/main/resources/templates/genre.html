@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search genre</title>
+</head>
+<body>
+
+<h1>Filter books by genre</h1>
+<form th:action="@{/genre}" method="get">
+
+    <ul>
+        <li th:each="book : ${books}"
+            th:text="${book.title} + ' by ' + ${book.author} + ' (' + ${book.genre} + ')'"></li>
+    </ul>
+
+    <span th:if="${#lists.isEmpty(books)}">No books found</span>
+</form>
+
+</body>
+</html>
